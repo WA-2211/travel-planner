@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CreateTrip</title>
+</head>
+<body>
+    <h1>Create New Trip!</h1>
+
+    <form action="/trips" method="post">
+
+        <label for="title">Trip Title:</label>
+        <input type="text" name="title" id="title">
+
+        <label for="startDate">Trip Start Date:</label>
+        <input type="date" name="startDate" id="startDate">
+
+        <label for="endStart">Trip End Date:</label>
+        <input type="date" name="endStart" id="endStart">
+
+        <label for="photo">Photo:</label>
+        <input type="text" name="photo" id="photo">
+
+        <button type="submit">Create Trip</button>
+    </form>
+</body>
+</html>
