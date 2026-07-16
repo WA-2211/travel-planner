@@ -9,10 +9,11 @@ const bookingSchema = new mongoose.Schema({
     cost:{
         type: Number, 
         required: true,
-        min: 0.5
+        min: 0
     },
     date:{
-        type: Date
+        type: Date,
+        required: true
     }
 })
 

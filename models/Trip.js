@@ -3,7 +3,8 @@ const mongoose = require('mongoose')
 const tripSchema = new mongoose.Schema({
     title:{
         type: String,
-        maxLength: 35,
+        minLength: 4,
+        maxLength: 100,
         required: true
     },
     startDate:{
@@ -16,7 +17,6 @@ const tripSchema = new mongoose.Schema({
     },
     photo:{
         type: String
-
     },
     owner:{
         type: mongoose.Schema.Types.ObjectId,
