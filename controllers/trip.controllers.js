@@ -2,7 +2,7 @@ const router = require("express").Router()
 const Trip = require('../models/Trip')
 const isSignedIn = require('../middleware/is-signed-in')
 
-router.get('/new', isSignedIn, async (req, res)=>{
+router.get('/new', isSignedIn,  (req, res)=>{
     try{
   res.render('trip/create-trip.ejs')
     } catch(err){
@@ -11,8 +11,9 @@ router.get('/new', isSignedIn, async (req, res)=>{
     
 })
 
-router.post('/trip', isSignedIn,async (req, res)=>{
+router.post('/new', isSignedIn, async (req, res)=>{
     try{
+        console.log(req.body)
     const newTrip = await Trip.create({
         title: req.body.title,
         startDate: req.body.startDate,
@@ -20,7 +21,6 @@ router.post('/trip', isSignedIn,async (req, res)=>{
         photo: req.body.photo,
         owner: req.session.user._id
     }) 
-    console.log(newTrip)
     res.redirect('/trip')
     } catch(err){
         console.log('ERROR:', err)
