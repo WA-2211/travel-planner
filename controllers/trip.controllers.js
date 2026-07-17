@@ -1,6 +1,7 @@
 const router = require("express").Router()
 const Trip = require('../models/Trip')
 const isSignedIn = require('../middleware/is-signed-in')
+const { findById } = require("../models/user")
 
 router.get('/new', isSignedIn,  (req, res)=>{
     try{
@@ -32,10 +33,16 @@ router.get('/', isSignedIn, async (req, res)=>{
         const foundAllTrips = await Trip.find()
         res.render('trip/all-trips.ejs', {trips: foundAllTrips})
     }catch(err){
-            onsole.log('ERROR:', err)
-
+        console.log('ERROR:', err)
     }
 })
 
-
+router.get('/:tripId',isSignedIn, async (req, res)=>{
+    try{
+        const foundOneTrip = await Trip.findById(req.params.tripId)
+        res.render('trip/trip-details.ejs', {trip: foundOneTrip})
+    }catch(err){
+            console.log('ERROR:', err)
+    }
+})
 module.exports = router;
