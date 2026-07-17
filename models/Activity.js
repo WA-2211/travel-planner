@@ -17,7 +17,15 @@ const activitySchema = new mongoose.Schema({
     },
     cost:{
         type: Number,
-        required: True
+        required: true
+    },
+    trip:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Trip'
+    },
+    destination:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Destination'
     }
 })
 

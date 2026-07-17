@@ -3,8 +3,8 @@ const mongoose = require('mongoose')
 const tripSchema = new mongoose.Schema({
     title:{
         type: String,
-        minLength: 4,
-        maxLength: 100,
+        minlength: 4,
+        maxlength: 100,
         required: true
     },
     startDate:{
