@@ -19,6 +19,9 @@ router.post("/sign-up", async (req, res) => {
     return res.send("Password and Confirm Password must match");
   }
 
+  if (req.body.password.length < 8){
+    return res.send("Password must be minimum 8 characters")
+  }
   const hashedPassword = bcrypt.hashSync(req.body.password, 10);
   req.body.password = hashedPassword;
 
@@ -52,6 +55,7 @@ router.post("/sign-in", async (req, res) => {
   if (!validPassword) {
     return res.send("Login failed. Please try again.");
   }
+
 
   // There is a user AND they had the correct password. Time to make a session!
   // Avoid storing the password, even in hashed format, in the session
