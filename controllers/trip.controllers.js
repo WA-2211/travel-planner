@@ -27,6 +27,15 @@ router.post('/new', isSignedIn, async (req, res)=>{
     }
 })
 
+router.get('/', isSignedIn, async (req, res)=>{
+    try{
+        const foundAllTrips = await Trip.find()
+        res.render('trip/all-trips.ejs', {trips: foundAllTrips})
+    }catch(err){
+            onsole.log('ERROR:', err)
+
+    }
+})
 
 
 module.exports = router;
