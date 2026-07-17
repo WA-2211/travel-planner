@@ -6,12 +6,11 @@
     <title>Trip-Details</title>
 </head>
 <body>
+    <%- include('../partials/navbar') %>
     <h1><%= trip.title %> Details</h1>
     <p>Trip Start Date: <%= trip.startDate.toDateString() %></p>
     <p>Trip End Date: <%= trip.endDate.toDateString() %></p>
     <p>Photos: <%= trip.photo %></p>
-
-
 
 </body>
 </html>
