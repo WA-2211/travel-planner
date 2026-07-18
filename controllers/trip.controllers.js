@@ -42,6 +42,15 @@ router.get('/:tripId',isSignedIn, async (req, res)=>{
         const foundOneTrip = await Trip.findById(req.params.tripId)
         res.render('trip/trip-details.ejs', {trip: foundOneTrip})
     }catch(err){
+        console.log('ERROR:', err)
+    }
+})
+
+router.get('/:tripId/edit', isSignedIn, async (req,res)=>{
+    try{
+        const foundOneTrip = await Trip.findById(req.params.tripId)
+        res.render('trip/trip-edit.ejs',{trip: foundOneTrip} )
+    }catch(err){
             console.log('ERROR:', err)
     }
 })
