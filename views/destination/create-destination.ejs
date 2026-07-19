@@ -16,6 +16,13 @@
         <label for="city">City:</label>
         <input type="text" name="city" id="city">
 
+        <label for="trip">Trip:</label>
+        <select name="trip" id="trip">
+        <% for (let oneTrip of trips){ %>
+            <option value="<%= oneTrip._id %>"><%= oneTrip.title %></option>
+          <% } %>
+       </select>
+
         <button type="submit">Create Destination</button>
     </form>
     
