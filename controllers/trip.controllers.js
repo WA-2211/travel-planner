@@ -68,4 +68,14 @@ router.put('/:tripId', isSignedIn, async (req, res)=>{
     }catch(err){
         console.log('ERROR:', err)}
 })
+
+router.delete('/:tripId', isSignedIn, async (req, res)=>{
+    try{
+    const deleteTrip = await Trip.findByIdAndDelete(req.params.tripId)
+    res.redirect('/trip')
+    }catch(err){
+        console.log('ERROR:', err)
+    }
+    
+})
 module.exports = router;

@@ -13,6 +13,9 @@
     <p>Photos: <%= trip.photo %></p>
 
     <a href="/trip/<%= trip._id %>/edit">Edit Trip</a>
+    <form action="/trip/<%= trip._id %>/?_method=DELETE" method="post">
+        <button type="submit">Delete Trip</button>
+    </form>
 
 </body>
 </html>
