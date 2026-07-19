@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>edit Booking</h1>
+       <form action="/trip/<%= currentTrip %>/booking/<%= booking._id%>?_method=PUT" method="post">
+
+
+      <label for="type">Booking Type:</label>
+      <select name="type" id="type">
+        <% for (let oneType of types) { %>
+            <option value="<%= oneType %>" <% if (booking.type === oneType) { %>
+                selected
+                <% } %>
+                ><%= oneType %>
+            </option>
+        <% } %>
+      </select>
+
+
+
+        <label for="cost">Cost:</label>
+        <input type="number" name="cost" id="cost" value="<%= booking.cost %>">
+
+        <label for="date">Date:</label>
+        <input type="date" name="date" id="date" value="<%= booking.date.toISOString().substring(0, 10) %>">
+
+        <label for="trip">Trip:</label>
+        <select name="trip" id="trip">
+            <% for (let oneTrip of trips){ %>
+                <option value="<%= oneTrip._id %>" <% if (currentTrip.toString() === oneTrip._id.toString()) { %>
+                    selected
+                    <%}%>
+                    ><%= oneTrip.title %>
+            </option>
+            <% } %>
+        </select>
+      
+       <button type="submit">Update Booking</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Booking</title>
+</head>
+<body>
+    <%- include('../partials/navbar')%>
+    <h1>All bookings</h1>
+
+    <% for(let oneBooking of bookings){ %>
+        <p>Booking Type: <%= oneBooking.type %> | Booking Cost: <%= oneBooking.cost %> | Booking Date: <%= oneBooking.date.toDateString()%> | Trip:<%= oneBooking.trip.title%> | <%= oneBooking.trip.photo%></p>
+    
+
+        <a href="/trip/<%= currentTrip %>/booking/<%= oneBooking._id %>/edit">Edit Booking</a>
+
+    <% } %>
+
+
+</body>
+</html>

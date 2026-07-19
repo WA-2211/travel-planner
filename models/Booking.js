@@ -4,7 +4,7 @@ const bookingSchema = new mongoose.Schema({
     type:{
         type: String,
         required: true,
-        enum: ['Flight', 'Hotel', 'restaurant']
+        enum: ['Flight', 'Hotel', 'Restaurant']
     },
     cost:{
         type: Number, 

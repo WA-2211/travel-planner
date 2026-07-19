@@ -20,6 +20,7 @@ const authController = require("./controllers/auth.controllers.js");
 const indexController = require("./controllers/index.controllers.js");
 const tripController = require("./controllers/trip.controllers.js");
 const destinationController = require("./controllers/destination.controllers.js");
+const bookingController = require("./controllers/booking.controllers.js");
 
 // Middleware
 app.use(express.static('public')) // my app will serve all static files from public folder
@@ -62,7 +63,7 @@ app.use('/auth',authController)
 app.use('/',indexController)
 app.use('/trip', tripController)
 app.use('/destination', destinationController)
-
+app.use('/trip', bookingController)
 
 
 
