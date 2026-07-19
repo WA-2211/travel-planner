@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity Details</title>
+</head>
+<body>
+    <%- include('../partials/navbar')%>
+    <h1><%= activity.name %> Details</h1>
+    <p>Activity Type: <%= activity.type %></p>
+    <p>Activity Date: <%= activity.timeOfActivity.toISOString().substring(0, 10) %></p>
+    <p>Activity Time: <%= activity.timeOfActivity.toISOString().substring(11, 16) %></p>
+    <p>Activity Cost: <%= activity.cost %></p>
+    <p>Activity Trip: <%= activity.trip.title %></p>
+    <p>Activity Destination: <%= activity.destination.country %>, <%= activity.destination.city %></p>
+
+    <a href="/trip/<%= currentTrip %>/activity">Back To Activities</a>
+</body>
+</html>

@@ -36,4 +36,31 @@ router.post('/:tripId/activity/new', isSignedIn, async (req, res)=>{
         console.log('ERROR:', err)
     }
 })
+
+router.get('/:tripId/activity', isSignedIn, async (req, res)=>{
+    try{
+
+        const currentTrip = req.params.tripId
+        const foundAllActivities = await Activity.find()
+        res.render('activity/all-activities.ejs', {
+            activities: foundAllActivities,
+            currentTrip: currentTrip
+        })
+    }catch(err){
+        console.log('ERROR:', err)
+    }
+})
+
+router.get('/:tripId/activity/:activityId', isSignedIn, async (req, res)=>{
+    try{
+        const currentTrip = req.params.tripId
+        const foundOneActivity = await Activity.findById(req.params.activityId).populate('trip').populate('destination')
+        console.log(foundOneActivity)
+        res.render('activity/activity-details.ejs', {
+            activity: foundOneActivity,
+            currentTrip:currentTrip})
+    }catch(err){
+        console.log('ERROR:', err)
+    }
+})
 module.exports = router;

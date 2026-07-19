@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Activities</title>
+</head>
+<body>
+    <%- include('../partials/navbar')%>
+    <h1>All Activites</h1>
+    <% for (let oneActivity of activities) { %>
+        <p><%= oneActivity.name %></p>
+        <a href="/trip/<%= currentTrip %>/activity/<%= oneActivity._id%>">Activity Details</a>
+    <% } %>
+
+</body>
+</html>
