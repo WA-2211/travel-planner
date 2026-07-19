@@ -65,7 +65,7 @@ app.use('/',indexController)
 app.use('/trip', tripController)
 app.use('/destination', destinationController)
 app.use('/trip', bookingController)
-app.use('/activity', activityController)
+app.use('/trip', activityController)
 
 
 

@@ -9,7 +9,7 @@
     <%- include('../partials/navbar')%>
     <h1>New Activity</h1>
 
-    <form action="" method="">
+    <form action="/trip/<%= currentTrip %>/activity/new" method="post">
         <label for="name">Activity Name</label>
         <input type="text" name="name" id="name">
 
@@ -51,6 +51,8 @@
             </option>
             <% } %>
         </select>
+
+        <button type="submit">Add Activity</button>
     </form>
 </body>
 </html>
