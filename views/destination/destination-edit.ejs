@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Destination</title>
+</head>
+<body>
+    <h1>Edit Destination</h1>
+
+    <form action="/destination/<%= destination._id %>/?_method=PUT" method="post">
+        <label for="country">Country:</label>
+        <input type="text" name="country" id="country" value="<%= destination.country %>">
+
+        <label for="city">City:</label>
+        <input type="text" name="city" id="city" value="<%= destination.city %>">
+
+
+        <button type="submit">Update Destination</button>
+    </form>
+    
+</body>
+</html>

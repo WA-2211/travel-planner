@@ -34,4 +34,26 @@ router.get('/', isSignedIn, async (req, res)=>{
         console.log('ERROR:', err)
     }
 })
+
+router.get('/:destinationId/edit', isSignedIn, async(req, res)=>{
+    try{
+        const foundOneDestination = await Destination.findById(req.params.destinationId).populate('trip')
+        res.render('destination/destination-edit.ejs', {destination: foundOneDestination})
+    }catch(err){
+        console.log('ERROR:', err)
+    }
+})
+router.put('/:destinationId', isSignedIn, async(req, res)=>{
+    
+        try{
+        const updatedDestination = await Destination.findByIdAndUpdate(req.params.destinationId, {
+        country: req.body.country,
+        city: req.body.city
+        })
+
+        res.redirect('/destination')
+    }catch(err){
+        console.log('ERROR:', err)
+    }
+})
 module.exports = router;

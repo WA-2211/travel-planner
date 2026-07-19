@@ -6,11 +6,12 @@
     <title>All Destinations</title>
 </head>
 <body>
+    <%- include ('../partials/navbar')%>
     <h1>All Destinations</h1>
     <% for(let oneDestination of destinations) { %>
         <p>Trip: <%= oneDestination.trip.title %> </p>
         <p>Destination: <%= oneDestination.country %>, <%= oneDestination.city %></p>
-
+    <a href="/destination/<%= oneDestination._id %>/edit">Edit Destination</a>
     <% } %>
 </body>
 </html>
