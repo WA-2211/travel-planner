@@ -6,9 +6,9 @@
     <title>Document</title>
 </head>
 <body>
+    <%- include ('../partials/navbar')%>
     <h1>edit Booking</h1>
        <form action="/trip/<%= currentTrip %>/booking/<%= booking._id%>?_method=PUT" method="post">
-
 
       <label for="type">Booking Type:</label>
       <select name="type" id="type">
@@ -20,8 +20,6 @@
             </option>
         <% } %>
       </select>
-
-
 
         <label for="cost">Cost:</label>
         <input type="number" name="cost" id="cost" value="<%= booking.cost %>">
@@ -42,5 +40,7 @@
       
        <button type="submit">Update Booking</button>
     </form>
+
+    <a href="/trip/<%= currentTrip %>/booking">Back To ALL Booking</a>
 </body>
 </html>
