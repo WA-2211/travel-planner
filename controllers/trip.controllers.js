@@ -30,12 +30,15 @@ router.post('/new', isSignedIn, async (req, res)=>{
 
 router.get('/', isSignedIn, async (req, res)=>{
     try{
-        const foundAllTrips = await Trip.find()
+        const foundAllTrips = await Trip.find({owner: req.session.user._id})
         res.render('trip/all-trips.ejs', {trips: foundAllTrips})
     }catch(err){
         console.log('ERROR:', err)
     }
 })
+
+
+
 
 router.get('/:tripId',isSignedIn, async (req, res)=>{
     try{
