@@ -18,6 +18,10 @@
 
         <button type="submit">Update Destination</button>
     </form>
+
+    <form action="/destination/<%= destination._id%>/?_method=DELETE" method="post">
+        <button type="submit">Delete</button>
+    </form>
     
 </body>
 </html>
