@@ -10,4 +10,17 @@ router.get('/new', isSignedIn, (req, res)=>{
         console.log('ERROR:', err)
     }
 })
+
+router.post('/new', isSignedIn, async (req,res)=>{
+    try{
+        const newDestination = await Destination.create({
+            country: req.body.country,
+            city: req.body.city
+        })
+
+        res.redirect('/destination')
+    }catch(err){
+        console.log('ERROR:', err)
+    }
+})
 module.exports = router;
