@@ -12,7 +12,7 @@
     <% for(let oneBooking of bookings){ %>
         <p>Booking Type: <%= oneBooking.type %> | Booking Cost: <%= oneBooking.cost %> | Booking Date: <%= oneBooking.date.toDateString()%> | Trip:<%= oneBooking.trip.title%> | <%= oneBooking.trip.photo%></p>
     
-
+        <a href="/trip/<%= currentTrip %>/booking/new">Add Booking for Trip</a>
         <a href="/trip/<%= currentTrip %>/booking/<%= oneBooking._id %>/edit">Edit Booking</a>
         <form action="/trip/<%= currentTrip %>/booking/<%= oneBooking._id%>/?_method=DELETE" method="post">
             <button type="submit">Delete Booking</button>

@@ -19,7 +19,7 @@
         </select>
 
 
-        <label for="cost">Cost:</label>
+        <label for="cost">Cost$:</label>
         <input type="number" name="cost" id="cost">
 
         <label for="date">Date:</label>
@@ -28,7 +28,11 @@
         <label for="trip">Trip:</label>
         <select name="trip" id="trip">
             <% for (let oneTrip of trips){ %>
-                <option value="<%= oneTrip._id %>"><%= oneTrip.title %></option>
+                <option value="<%= oneTrip._id %>" <% if (currentTrip.toString() === oneTrip._id.toString()) { %>
+                    selected
+                    <%}%>
+                    ><%= oneTrip.title %>
+            </option>
             <% } %>
         </select>
       
