@@ -54,4 +54,18 @@ router.get('/:tripId/edit', isSignedIn, async (req,res)=>{
             console.log('ERROR:', err)
     }
 })
+
+router.put('/:tripId', isSignedIn, async (req, res)=>{
+    try{
+        const updatedTrip = await Trip.findByIdAndUpdate(req.params.tripId, {
+        title: req.body.title,
+        startDate: req.body.startDate,
+        endDate: req.body.endDate,
+        photo: req.body.photo,
+        })
+
+        res.redirect('/trip')
+    }catch(err){
+        console.log('ERROR:', err)}
+})
 module.exports = router;
