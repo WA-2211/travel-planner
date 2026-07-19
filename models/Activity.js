@@ -11,6 +11,10 @@ const activitySchema = new mongoose.Schema({
         enum: ['Sightseeing', 'Adventure', 'Cultural', 'Relaxation', 'Educational', 'Entertainment', 'Dining']
     },
 
+    dateOfActivity:{
+        type: Date,
+        required: true
+    },
     timeOfActivity:{
         type: Date,
         required: true

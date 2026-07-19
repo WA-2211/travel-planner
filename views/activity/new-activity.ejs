@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Activity</title>
+</head>
+<body>
+    <%- include('../partials/navbar')%>
+    <h1>New Activity</h1>
+
+    <form action="" method="">
+        <label for="name">Activity Name</label>
+        <input type="text" name="name" id="name">
+
+        <label for="type">Activity Type:</label>
+        <select name="type" id="type">
+
+            <option value="Sightseeing">Sightseeing</option>
+            <option value="Adventure">Adventure</option>
+            <option value="Cultural">Cultural</option>
+            <option value="Relaxation">Relaxation</option>
+            <option value="Educational">Educational</option>
+            <option value="Entertainment">Entertainment</option>
+            <option value="Dining">Dining</option>
+
+        </select>
+        <label for="dateOfActivity">Activity Date:</label>
+        <input type="date" name="dateOfActivity" id="dateOfActivity">
+
+        <label for="timeOfActivity">Activity Time:</label>
+        <input type="time" name="timeOfActivity" id="timeOfActivity">
+
+        <label for="cost">Cost:</label>
+        <input type="number" name="cost" id="cost">
+
+        <label for="trip">Trip</label>
+        <select name="trip" id="trip">
+            <% for (let oneTrip of trips){ %>
+                <option value="<%= oneTrip._id %>" 
+                    ><%= oneTrip.title %>
+            </option>
+            <% } %>
+        </select>
+
+        <label for="destination">Destination</label>
+        <select name="destination" id="destination">
+            <% for (let oneDestination of destinations){ %>
+                <option value="<%= oneDestination._id %>" 
+                    ><%= oneDestination.city %>
+            </option>
+            <% } %>
+        </select>
+    </form>
+</body>
+</html>
