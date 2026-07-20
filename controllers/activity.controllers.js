@@ -63,4 +63,32 @@ router.get('/:tripId/activity/:activityId', isSignedIn, async (req, res)=>{
         console.log('ERROR:', err)
     }
 })
+
+router.get('/:tripId/activity/:activityId/edit', isSignedIn, async (req, res)=>{
+    try{
+        const foundTrips = await Trip.find()
+        const currentTrip = req.params.tripId
+        const activityTypes = ['Sightseeing', 'Adventure', 'Cultural', 'Relaxation', 'Educational', 'Entertainment', 'Dining']
+        const foundDestinations = await Destination.find()
+        const foundOneActivity = await Activity.findById(req.params.activityId).populate('trip').populate('destination')
+        res.render('activity/edit-activity.ejs', {
+            activity: foundOneActivity,
+            currentTrip: currentTrip,
+            trips: foundTrips,
+            destinations: foundDestinations,
+            types: activityTypes
+        })
+    }catch(err){
+        console.log('ERROR:', err)
+    }
+})
+
+router.delete('/:tripId/activity/:activityId', isSignedIn, async (req, res)=>{
+    try{
+        const deleteActivity = await Activity.findByIdAndDelete(req.params.activityId)
+        res.redirect(`/trip/${req.params.tripId}/activity`)
+    }catch(err){
+        console.log('ERROR:', err)
+    }
+})
 module.exports = router;

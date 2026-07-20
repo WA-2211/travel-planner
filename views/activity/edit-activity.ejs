@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Activity</title>
+</head>
+<body>
+    <%- include ('../partials/navbar')%>
+    <h1>Edit Activity</h1>
+     <form action="/trip/<%= currentTrip %>/activity/new" method="post">
+        <label for="name">Activity Name</label>
+        <input type="text" name="name" id="name" value="<%= activity.name %>">
+
+        <label for="type">Activity Type:</label>
+        <select name="type" id="type">
+            <% for (let oneType of types) { %>
+                 <option value="<%= oneType %>" <% if (activity.type === oneType) { %>
+                  selected
+                  <% } %>
+                  ><%= oneType %>
+                </option>
+             <% } %>
+      </select>
+        <label for="dateOfActivity">Activity Date:</label>
+        <input type="date" name="dateOfActivity" id="dateOfActivity" val>
+
+        <label for="timeOfActivity">Activity Time:</label>
+        <input type="time" name="timeOfActivity" id="timeOfActivity">
+
+        <label for="cost">Cost:</label>
+        <input type="number" name="cost" id="cost" value="<%= activity.cost %>">
+
+        <label for="trip">Trip</label>
+        <select name="trip" id="trip">
+            <% for (let oneTrip of trips){ %>
+                <option value="<%= oneTrip._id %>" <% if (currentTrip.toString() === oneTrip._id.toString()) { %>
+                    selected
+                    <%}%>
+                    ><%= oneTrip.title %>
+            </option>
+            <% } %>
+        </select>
+
+        <label for="destination">Destination</label>
+        <select name="destination" id="destination">
+            <% for (let oneDestination of destinations){ %>
+                <option value="<%= oneDestination._id %>" <% if (currentTrip.toString() === oneDestination._id.toString()) { %>
+                    selected
+                    <%}%>
+                    ><%= oneDestination.country %> <%= oneDestination.city %>
+            </option>
+            <% } %>
+        </select>
+
+        <button type="submit">Update Activity</button>
+    </form>
+</body>
+</html>

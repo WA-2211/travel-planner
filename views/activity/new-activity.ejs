@@ -47,7 +47,7 @@
         <select name="destination" id="destination">
             <% for (let oneDestination of destinations){ %>
                 <option value="<%= oneDestination._id %>" 
-                    ><%= oneDestination.city %>
+                    ><%= oneDestination.country %> <%= oneDestination.city %>
             </option>
             <% } %>
         </select>

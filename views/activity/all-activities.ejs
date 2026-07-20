@@ -11,6 +11,7 @@
     <% for (let oneActivity of activities) { %>
         <p><%= oneActivity.name %></p>
         <a href="/trip/<%= currentTrip %>/activity/<%= oneActivity._id%>">Activity Details</a>
+        <a href="/trip/<%= currentTrip %>/activity/new">Add Activity</a>
     <% } %>
 
 </body>
