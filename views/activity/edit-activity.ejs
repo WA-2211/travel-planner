@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Activity</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     <%- include ('../partials/navbar')%>
     <h1>Edit Activity</h1>
-     <form action="/trip/<%= currentTrip %>/activity/new" method="post">
+     <form action="/trip/<%= activity.trip._id %>/activity/<%= activity._id %>?_method=PUT" method="post">
         <label for="name">Activity Name</label>
         <input type="text" name="name" id="name" value="<%= activity.name %>">
 
@@ -24,10 +24,10 @@
              <% } %>
       </select>
         <label for="dateOfActivity">Activity Date:</label>
-        <input type="date" name="dateOfActivity" id="dateOfActivity" val>
+        <input type="date" name="dateOfActivity" id="dateOfActivity" value="<%= activity.timeOfActivity.toISOString().substring(0, 10)%>">
 
         <label for="timeOfActivity">Activity Time:</label>
-        <input type="time" name="timeOfActivity" id="timeOfActivity">
+        <input type="time" name="timeOfActivity" id="timeOfActivity" value="<%= activity.timeOfActivity.toISOString().substring(11, 16)  %>">
 
         <label for="cost">Cost:</label>
         <input type="number" name="cost" id="cost" value="<%= activity.cost %>">
@@ -35,7 +35,7 @@
         <label for="trip">Trip</label>
         <select name="trip" id="trip">
             <% for (let oneTrip of trips){ %>
-                <option value="<%= oneTrip._id %>" <% if (currentTrip.toString() === oneTrip._id.toString()) { %>
+                <option value="<%= oneTrip._id %>" <% if (activity.trip._id.toString() === oneTrip._id.toString()) { %>
                     selected
                     <%}%>
                     ><%= oneTrip.title %>
@@ -46,7 +46,7 @@
         <label for="destination">Destination</label>
         <select name="destination" id="destination">
             <% for (let oneDestination of destinations){ %>
-                <option value="<%= oneDestination._id %>" <% if (currentTrip.toString() === oneDestination._id.toString()) { %>
+                <option value="<%= oneDestination._id %>" <% if (activity.destination._id.toString() === oneDestination._id.toString()) { %>
                     selected
                     <%}%>
                     ><%= oneDestination.country %> <%= oneDestination.city %>
@@ -56,5 +56,6 @@
 
         <button type="submit">Update Activity</button>
     </form>
+    <a href="/trip/<%= activity.trip._id %>/activity/<%= activity._id %>">Back</a>
 </body>
 </html>

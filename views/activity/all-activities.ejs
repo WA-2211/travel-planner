@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Activities</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     <%- include('../partials/navbar')%>
@@ -12,8 +12,9 @@
     <% for (let oneActivity of activities) { %>
         <p><%= oneActivity.name %></p>
         <a href="/trip/<%= currentTrip %>/activity/<%= oneActivity._id%>">Activity Details</a>
-        <a href="/trip/<%= currentTrip %>/activity/new">Add Activity</a>
     <% } %>
+
+    <a href="/trip/<%= currentTrip %>/activity/new">Add Activity</a>
 
 </body>
 </html>
