@@ -73,15 +73,13 @@ router.get('/:tripId/activity/:activityId/edit', isSignedIn, async (req, res)=>{
     try{
         const foundTrips = await Trip.find()
         const currentTrip = req.params.tripId
-        const foundDestinations = await Destination.find()
-        const currentDestination = req.body.destination
+        const foundDestinations = await Destination.find({trip: currentTrip})
         const activityTypes = ['Sightseeing', 'Adventure', 'Cultural', 'Relaxation', 'Educational', 'Entertainment', 'Dining']
         const foundOneActivity = await Activity.findById(req.params.activityId).populate('trip').populate('destination')
         res.render('activity/edit-activity.ejs', {
             activity: foundOneActivity,
             currentTrip: currentTrip,
             trips: foundTrips,
-            currentDestination: currentDestination,
             destinations: foundDestinations,
             types: activityTypes
         })

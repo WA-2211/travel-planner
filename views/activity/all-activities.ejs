@@ -11,7 +11,7 @@
     <h1>All Activites</h1>
     <% for (let oneActivity of activities) { %>
         <p><%= oneActivity.name %></p>
-        <a href="/trip/<%= currentTrip %>/activity/<%= oneActivity._id%>">Activity Details</a>
+        <a href="/trip/<%= currentTrip %>/activity/<%= oneActivity._id%>" class="aLink">Activity Details</a>
     <% } %>
 
     <a href="/trip/<%= currentTrip %>/activity/new" class="aLink">Add Activity</a>

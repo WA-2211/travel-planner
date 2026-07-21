@@ -12,7 +12,7 @@
     <% for(let oneDestination of destinations) { %>
         <p>Trip: <%= oneDestination.trip.title %> </p>
         <p>Destination: <%= oneDestination.country %>, <%= oneDestination.city %></p>
-    <a href="/destination/<%= oneDestination._id %>/edit">Edit Destination</a>
+    <a href="/destination/<%= oneDestination._id %>/edit" class="aLink">Edit Destination</a>
     <% } %>
 </body>
 </html>

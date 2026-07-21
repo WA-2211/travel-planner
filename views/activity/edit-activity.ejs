@@ -9,6 +9,7 @@
 <body>
     <%- include ('../partials/navbar')%>
     <h1>Edit Activity</h1>
+    <div class="forms">
      <form action="/trip/<%= activity.trip._id %>/activity/<%= activity._id %>?_method=PUT" method="post">
         <label for="name">Activity Name</label>
         <input type="text" name="name" id="name" value="<%= activity.name %>">
@@ -54,8 +55,9 @@
             <% } %>
         </select>
 
-        <button type="submit">Update Activity</button>
+        <button type="submit" class="btnSubmit">Update Activity</button>
     </form>
-    <a href="/trip/<%= activity.trip._id %>/activity/<%= activity._id %>">Back</a>
+    </div>
+    <a href="/trip/<%= activity.trip._id %>/activity/<%= activity._id %>" class="aLink">Back</a>
 </body>
 </html>

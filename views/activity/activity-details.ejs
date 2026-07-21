@@ -17,11 +17,11 @@
     <p>Activity Trip: <%= activity.trip.title %></p>
     <p>Activity Destination: <%= activity.destination.country %>, <%= activity.destination.city %></p>
 
-    <a href="/trip/<%= currentTrip %>/activity/<%= activity._id%>/edit">Edit Activity</a>
+    <a href="/trip/<%= currentTrip %>/activity/<%= activity._id%>/edit" class="aLink">Edit Activity</a>
 
     <form action="/trip/<%= currentTrip %>/activity/<%= activity._id %>/?_method=DELETE" method="post">
-        <button type="submit">Delete Activity</button>
+        <button type="submit" class="btnSubmit">Delete Activity</button>
     </form>
-    <a href="/trip/<%= currentTrip %>/activity">Back To Activities</a>
+    <a href="/trip/<%= currentTrip %>/activity" class="aLink">Back To Activities</a>
 </body>
 </html>
