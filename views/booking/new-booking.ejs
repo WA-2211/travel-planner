@@ -7,7 +7,10 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+    <%- include ('../partials/navbar')%>
     <h1>New Booking!</h1>
+
+    <div class="forms">
     <form action="/trip/<%= currentTrip %>/booking/new" method="post">
 
 
@@ -25,19 +28,11 @@
 
         <label for="date">Date:</label>
         <input type="date" name="date" id="date">
-
-        <label for="trip">Trip:</label>
-        <select name="trip" id="trip">
-            <% for (let oneTrip of trips){ %>
-                <option value="<%= oneTrip._id %>" <% if (currentTrip.toString() === oneTrip._id.toString()) { %>
-                    selected
-                    <%}%>
-                    ><%= oneTrip.title %>
-            </option>
-            <% } %>
-        </select>
       
-       <button type="submit">Add Booking</button>
+        <input type="hidden" name="trip" value="<%= currentTrip %>">
+
+       <button type="submit" class="btnSubmit">Add Booking</button>
     </form>
+    </div>
 </body>
 </html>

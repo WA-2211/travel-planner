@@ -10,7 +10,7 @@
     <%- include('../partials/navbar') %>
     <h1>Edit <%= trip.title %> Trip!</h1>
 
-    
+    <div class="forms">
     <form action="/trip/<%= trip._id %>/?_method=PUT" method="post">
 
         <label for="title">Trip Title:</label>
@@ -25,7 +25,8 @@
         <label for="photo">Photo:</label>
         <input type="text" name="photo" id="photo" value="<%= trip.photo %>">
 
-        <button type="submit">Edit Trip</button>
+        <button type="submit" class="btnSubmit">Edit Trip</button>
     </form>
+    </div>
 </body>
 </html>

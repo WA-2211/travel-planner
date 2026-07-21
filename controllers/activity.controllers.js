@@ -9,8 +9,7 @@ router.get('/:tripId/activity/new', isSignedIn, async(req,res)=>{
         const currentTrip = req.params.tripId
         const foundTrip = await Trip.findById(currentTrip);
         const foundDestinations = await Destination.find({trip:currentTrip});
-        // const currentDestination = req.body.destination.destinationId
-        // const foundOneDestination = await Destination.findById(req.params.destinationId).populate('destination').populate('trip')
+      
         console.log(foundTrip)
         res.render('activity/new-activity.ejs', {
             currentTrip: currentTrip,
@@ -29,7 +28,7 @@ router.post('/:tripId/activity/new', isSignedIn, async (req, res)=>{
             type: req.body.type,
             timeOfActivity: dateTime,
             cost: req.body.cost,
-            trip: req.body.trip,
+            trip: req.params.tripId,
             destination: req.body.destination
         })
 
@@ -73,25 +72,6 @@ router.get('/:tripId/activity/:activityId', isSignedIn, async (req, res)=>{
 router.get('/:tripId/activity/:activityId/edit', isSignedIn, async (req, res)=>{
     try{
         const foundTrips = await Trip.find()
-        const foundDestinations = await Destination.find()
-        const activityTypes = ['Sightseeing', 'Adventure', 'Cultural', 'Relaxation', 'Educational', 'Entertainment', 'Dining']
-        const foundOneActivity = await Activity.findById(req.params.activityId).populate('trip destination')
-
-        console.log(foundOneActivity)
-        res.render('activity/edit-activity.ejs', {
-            activity: foundOneActivity,
-            trips: foundTrips,
-            destinations: foundDestinations,
-            types: activityTypes
-        })
-    }catch(err){
-        console.log('ERROR:', err)
-    }
-})
-
-router.get('/:tripId/activity/:activityId/edit', isSignedIn, async (req, res)=>{
-    try{
-        const foundTrips = await Trip.find()
         const currentTrip = req.params.tripId
         const foundDestinations = await Destination.find()
         const currentDestination = req.body.destination
@@ -117,7 +97,7 @@ router.put('/:tripId/activity/:activityId', isSignedIn, async (req, res)=>{
         type: req.body.type,
         timeOfActivity: dateTime,
         cost: req.body.cost,
-        trip: req.body.trip,
+        trip: req.params.trip,
         destination: req.body.destination,
     })
 

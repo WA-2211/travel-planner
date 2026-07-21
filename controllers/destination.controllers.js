@@ -5,8 +5,13 @@ const isSignedIn = require('../middleware/is-signed-in')
 
 router.get('/new', isSignedIn, async (req, res)=>{
     try{
+        const currentTrip = req.params.tripId
         const foundAllTrips = await Trip.find()
-        res.render('destination/create-destination.ejs', {trips: foundAllTrips})
+        res.render('destination/create-destination.ejs', {
+            trips: foundAllTrips,
+            currentTrip: currentTrip
+        
+        })
     }catch(err){
         console.log('ERROR:', err)
     }

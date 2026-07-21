@@ -13,12 +13,13 @@
     <p>Trip End Date: <%= trip.endDate.toDateString() %></p>
     <p>Photos: <%= trip.photo %></p>
 
-    <a href="/trip/<%= trip._id %>/edit">Edit Trip</a>
+    <a href="/trip/<%= trip._id %>/edit" class="aLink">Edit Trip</a>
     <form action="/trip/<%= trip._id %>/?_method=DELETE" method="post">
-        <button type="submit">Delete Trip</button>
+        <button type="submit" class="btnSubmit">Delete Trip</button>
     </form>
 
-    <a href="/trip/<%= trip._id %>/booking">Show Bookings</a>
-    <a href="/trip/<%= trip._id %>/activity">Show Activities</a>
+    <a href="/destination/new" class="aLink">Add Destination</a>
+    <a href="/trip/<%= trip._id %>/booking" class="aLink">Show Bookings</a>
+    <a href="/trip/<%= trip._id %>/activity" class="aLink">Show Activities</a>
 </body>
 </html>

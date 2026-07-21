@@ -9,6 +9,9 @@
 <body>
     <%- include ('../partials/navbar')%>
     <h1>edit Booking</h1>
+
+
+    <div class="forms">
        <form action="/trip/<%= currentTrip %>/booking/<%= booking._id%>?_method=PUT" method="post">
 
       <label for="type">Booking Type:</label>
@@ -39,9 +42,10 @@
             <% } %>
         </select>
       
-       <button type="submit">Update Booking</button>
+       <button type="submit" class="btnSubmit">Update Booking</button>
     </form>
+    </div>
 
-    <a href="/trip/<%= currentTrip %>/booking">Back To ALL Booking</a>
+    <a href="/trip/<%= currentTrip %>/booking" class="aLink">Back To ALL Booking</a>
 </body>
 </html>

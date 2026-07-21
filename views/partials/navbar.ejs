@@ -1,17 +1,15 @@
 <nav>
     
-    <a href="/">Homepage</a>
     <% if (user){ %>
-    <a href="/auth/sign-out">Logout</a>
-    <a href="/trip/new">Create Trip</a>
-    <a href="/trip">All Trips</a>
-    <a href="/destination">All Destinations</a>
-    <a href="/destination/new">Create New Destination</a>
+    <a href="/home" class="aLink">Homepage</a>
+    <a href="/auth/sign-out" class="aLink">Logout</a>
+    <a href="/trip" class="aLink">All Trips</a>
+    <a href="/destination" class="aLink">All Destinations</a>
 
 
     <% } else{ %>
-    <a href="/auth/sign-up">Sign up</a>
-    <a href="/auth/sign-in">Login</a>
+    <a href="/auth/sign-up" class="aLink">Sign up</a>
+    <a href="/auth/sign-in" class="aLink">Login</a>
 
     <% } %>
     

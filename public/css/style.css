@@ -1,3 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yuyu&display=swap');
+
+nav{
+    background-color: rgb(92, 111, 73);
+    padding: 10px;
+    border-radius: 3px;
+    display: flex;
+    justify-content: space-around;
+}
+.aLink{
+    text-decoration: none;
+    background-color: rgb(92, 111, 73);
+    border-radius: 15px;
+    color: #F9F1DA;
+    padding: 5px;
+    box-shadow: 3px 2px 4px rgba(0, 0, 0, 0.3);
+    
+
+}
+
+.aLink:hover{
+    cursor: pointer;
+    background-color: #c6ba96;
+}
+
+#aLinkPlan{
+    display: inline-block;
+    text-decoration: none;
+    background-color: #c6ba96;
+    border: rgb(92, 111, 73) solid 2px;
+    border-radius: 15px;
+    color: rgb(93, 112, 73);
+    padding: 10px;
+    box-shadow: 3px 2px 4px rgba(0, 0, 0, 0.3);
+    font-family: "Yuyu", sans-serif;
+    font-size: 20px;
+    height: 20px;
+    width: 90px;
+    margin-top: 20px;
+}
+
+#aLinkPlan:hover{
+    cursor: pointer;
+    background-color: #f9f1dac1;
+    color: #c6ba96;
+    border: #c6ba96 solid 2px;
+}
+
 body{
-    background-color: pink;
+    margin: 0;
+    background-color: #F9F1DA;
+    text-align: center;
+    font-family: "Merriweather", serif;
+    font-weight: 700;
+    color: rgb(93, 112, 73);
+}
+#homeBody{
+    margin: 0;
+    background-color: #FDF8F2;
+    background-image:  url('./images/Homedesign.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+#homeBody h1{
+    font-family: "Yuyu", sans-serif;
+    font-weight: 700;
+    font-size: 50px;
+    margin-bottom: 30px;
+    margin-top: 100px;
+    color: rgb(93, 112, 73);
+}
+
+.forms {
+    background-color: rgba(93, 112, 73, 0.384);
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 350px;
+    justify-content: center;
+    padding: 30px;
+    margin: 30px auto;
+}
+
+.forms input{
+    background-color: rgb(93, 112, 73);
+    border: none;
+    border-radius: 10px;
+    color: #FDF8F2;
+    display: flex;
+    margin: 6px;
+    padding: 5px;
+    box-shadow: 3px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.forms input:hover{
+    border: none;
+    cursor: pointer;
+    background-color: #c6ba96;
+}
+
+.forms label{
+    color: #FDF8F2;
+}
+
+.btnSubmit{
+    text-decoration: none;
+    background-color: #c6ba96;
+    border: rgb(92, 111, 73) solid 2px;
+    border-radius: 30px;
+    color: rgb(93, 112, 73);
+    margin: 5px;
+    height: 30px;
+    width: 90px;
+    box-shadow: 3px 2px 4px rgba(0, 0, 0, 0.3);
+    font-family: "Yuyu", sans-serif;
+    font-size: 20px;
+}
+
+.btnSubmit:hover{
+    cursor: pointer;
+    background-color: rgba(93, 112, 73, 0.605);
+    color: #c6ba96;
+    border: #c6ba96;
 }
