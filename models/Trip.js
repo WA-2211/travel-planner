@@ -16,7 +16,8 @@ const tripSchema = new mongoose.Schema({
         required: true
     },
     photo:{
-        type: String
+        type: String,
+        data: Buffer
     },
     owner:{
         type: mongoose.Schema.Types.ObjectId,

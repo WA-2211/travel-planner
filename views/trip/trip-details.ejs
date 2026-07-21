@@ -9,10 +9,9 @@
 <body>
     <%- include('../partials/navbar') %>
     <h1><%= trip.title %> Details</h1>
-    <p>Trip Start Date: <%= trip.startDate.toDateString() %></p>
-    <p>Trip End Date: <%= trip.endDate.toDateString() %></p>
-    <p>Photos: <%= trip.photo %></p>
+    <p><span class="date">From:</span> <span class="dateString"><%= trip.startDate.toDateString() %></span> <span class="date">To:</span> <span class="dateString"><%= trip.endDate.toDateString() %></span></p>
 
+    <img src="/<%= trip.photo %>" alt="Trip Photo" id="photoTrip">
     <a href="/trip/<%= trip._id %>/edit" class="aLink">Edit Trip</a>
     <form action="/trip/<%= trip._id %>/?_method=DELETE" method="post">
         <button type="submit" class="btnSubmit">Delete Trip</button>

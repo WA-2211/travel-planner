@@ -3,6 +3,7 @@ const express = require("express") //importing express package
 const app = express() // creates a express application
 const dotenv = require("dotenv").config() //this allows me to use my .env values in this file
 const morgan = require('morgan')
+const multer = require('multer')
 const session = require('express-session');
 const methodOverride = require('method-override')
 const {MongoStore} = require("connect-mongo");
@@ -27,6 +28,7 @@ const activityController = require("./controllers/activity.controllers.js");
 app.use(express.static('public')) // my app will serve all static files from public folder
 app.use(express.urlencoded({ extended: false }));
 app.use(morgan('dev'))
+app.use('/uploads', express.static('uploads'))
 app.use(methodOverride('_method'))
 app.use(
   session({
@@ -80,3 +82,4 @@ async function startServer() {
 }
 
 startServer();
+

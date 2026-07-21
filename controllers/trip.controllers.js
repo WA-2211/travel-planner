@@ -2,6 +2,12 @@ const router = require("express").Router()
 const Trip = require('../models/Trip')
 const isSignedIn = require('../middleware/is-signed-in')
 const { findById } = require("../models/user")
+const multer = require('multer')
+
+
+const upload = multer({dest: './uploads/'})
+
+
 
 router.get('/new', isSignedIn,  (req, res)=>{
     try{
@@ -12,14 +18,16 @@ router.get('/new', isSignedIn,  (req, res)=>{
     
 })
 
-router.post('/new', isSignedIn, async (req, res)=>{
+router.post('/new', isSignedIn, upload.single('photo'), async (req, res)=>{
     try{
-        console.log(req.body)
-    const newTrip = await Trip.create({
+        console.log(req.body) 
+        console.log(req.file) 
+        const photoPath = req.file.path
+        const newTrip = await Trip.create({
         title: req.body.title,
         startDate: req.body.startDate,
         endDate: req.body.endDate,
-        photo: req.body.photo,
+        photo: req.file.path,
         owner: req.session.user._id
     }) 
     res.redirect('/trip')

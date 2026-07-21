@@ -11,7 +11,7 @@
     <h1>Create New Trip!</h1>
 
     <div class="forms">
-    <form action="/trip/new" method="post">
+    <form action="/trip/new" method="post" enctype="multipart/form-data">
 
         <label for="title">Trip Title:</label>
         <input type="text" name="title" id="title">
@@ -23,7 +23,7 @@
         <input type="date" name="endDate" id="endDate">
 
         <label for="photo">Photo:</label>
-        <input type="text" name="photo" id="photo">
+        <input type="file" name="photo" id="photo">
 
         <button type="submit" class="btnSubmit">Create Trip</button>
     </form>
