@@ -23,7 +23,7 @@
         <input type="date" name="endDate" id="endDate" value="<%= trip.endDate.toISOString().substring(0, 10) %>"> 
 
         <label for="photo">Photo:</label>
-        <input type="text" name="photo" id="photo" value="<%= trip.photo %>">
+        <input type="file" name="photo" id="photo" value="<%= trip.photo %>">
 
         <button type="submit" class="btnSubmit">Edit Trip</button>
     </form>

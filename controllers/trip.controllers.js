@@ -23,14 +23,22 @@ router.post('/new', isSignedIn, upload.single('photo'), async (req, res)=>{
         if(new Date (req.body.endDate) < new Date (req.body.startDate)){
             return res.send('End date cannot be before start date')
         }
+
+        let photo
+        if(!req.file){
+            photo = null
+        }
+
+        else{
+            photo = req.file.path
+        }
         console.log(req.body) 
         console.log(req.file) 
-        const photoPath = req.file.path
         const newTrip = await Trip.create({
         title: req.body.title,
         startDate: req.body.startDate,
         endDate: req.body.endDate,
-        photo: req.file.path,
+        photo: photo,
         owner: req.session.user._id
     })
     res.redirect('/trip')

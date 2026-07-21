@@ -17,8 +17,9 @@
     <h1><%= trip.title %> Details</h1>
     <p><span class="date">From:</span> <span class="dateString"><%= trip.startDate.toDateString() %></span> <span class="date">To:</span> <span class="dateString"><%= trip.endDate.toDateString() %></span></p>
 
+    <% if(trip.photo) {%>
     <img src="/<%= trip.photo %>" alt="Trip Photo" id="photoTrip">
-
+    <% } %>
     <div class="editAndDelte"></div>
     <a href="/trip/<%= trip._id %>/edit" class="btnSubmit">Edit Trip</a>
     <form action="/trip/<%= trip._id %>/?_method=DELETE" method="post">
