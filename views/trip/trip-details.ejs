@@ -8,17 +8,23 @@
 </head>
 <body>
     <%- include('../partials/navbar') %>
+    
+    <div class="showLinks">
+    <a href="/destination/new" class="aLink">Add Destination</a> <span class="tripDetail">|</span>
+    <a href="/trip/<%= trip._id %>/booking" class="aLink">Show Bookings</a> <span class="tripDetail">|</span>
+    <a href="/trip/<%= trip._id %>/activity" class="aLink">Show Activities</a>
+    </div>
     <h1><%= trip.title %> Details</h1>
     <p><span class="date">From:</span> <span class="dateString"><%= trip.startDate.toDateString() %></span> <span class="date">To:</span> <span class="dateString"><%= trip.endDate.toDateString() %></span></p>
 
     <img src="/<%= trip.photo %>" alt="Trip Photo" id="photoTrip">
-    <a href="/trip/<%= trip._id %>/edit" class="aLink">Edit Trip</a>
+
+    <div class="editAndDelte"></div>
+    <a href="/trip/<%= trip._id %>/edit" class="btnSubmit">Edit Trip</a>
     <form action="/trip/<%= trip._id %>/?_method=DELETE" method="post">
         <button type="submit" class="btnSubmit">Delete Trip</button>
     </form>
 
-    <a href="/destination/new" class="aLink">Add Destination</a>
-    <a href="/trip/<%= trip._id %>/booking" class="aLink">Show Bookings</a>
-    <a href="/trip/<%= trip._id %>/activity" class="aLink">Show Activities</a>
+
 </body>
 </html>

@@ -24,7 +24,7 @@ router.post('/new', isSignedIn, async (req,res)=>{
             city: req.body.city,
             trip: req.body.trip
         })
-
+        console.log(newDestination)
         res.redirect('/destination')
     }catch(err){
         console.log('ERROR:', err)
@@ -34,6 +34,7 @@ router.post('/new', isSignedIn, async (req,res)=>{
 router.get('/', isSignedIn, async (req, res)=>{
     try{
         const foundAllDestinations = await Destination.find().populate('trip')
+        console.log(foundAllDestinations)
         res.render('destination/all-destinations.ejs', {destinations: foundAllDestinations})
     }catch(err){
         console.log('ERROR:', err)

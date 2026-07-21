@@ -20,6 +20,9 @@ router.get('/new', isSignedIn,  (req, res)=>{
 
 router.post('/new', isSignedIn, upload.single('photo'), async (req, res)=>{
     try{
+        if(new Date (req.body.endDate) < new Date (req.body.startDate)){
+            return res.send('End date cannot be before start date')
+        }
         console.log(req.body) 
         console.log(req.file) 
         const photoPath = req.file.path
@@ -29,7 +32,7 @@ router.post('/new', isSignedIn, upload.single('photo'), async (req, res)=>{
         endDate: req.body.endDate,
         photo: req.file.path,
         owner: req.session.user._id
-    }) 
+    })
     res.redirect('/trip')
     } catch(err){
         console.log('ERROR:', err)
