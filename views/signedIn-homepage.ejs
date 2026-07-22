@@ -6,12 +6,15 @@
     <title>Document</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
-<body id="signedIn-homeBody">
+<body >
     <%- include ('./partials/navbar')%>
 <h1> <%= user.username %>'s Trip Planner </h1>
-<p>— let’s plan your next trip -</p>
+<p class="pStyle">— let’s plan your next trip -</p>
 
+<div class="showLinks">
 <a href="/trip/new" class="aLink">Create Trip</a>
 <a href="/destination/new" class="aLink">Create New Destination</a>
+</div>
+
 </body>
 </html>

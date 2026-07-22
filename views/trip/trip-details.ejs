@@ -20,7 +20,7 @@
     <% if(trip.photo) {%>
     <img src="/<%= trip.photo %>" alt="Trip Photo" id="photoTrip">
     <% } %>
-    <div class="editAndDelte"></div>
+    <div class="editAndDelete"></div>
     <a href="/trip/<%= trip._id %>/edit" class="btnSubmit">Edit Trip</a>
     <form action="/trip/<%= trip._id %>/?_method=DELETE" method="post">
         <button type="submit" class="btnSubmit">Delete Trip</button>

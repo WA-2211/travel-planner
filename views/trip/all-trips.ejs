@@ -9,11 +9,18 @@
 <body>
     <%- include('../partials/navbar') %>
     <h1>All Trips</h1>
+    
+    <div class="cardDisplay">
     <% for (let oneTrip of trips){ %>
     
+        <div class="card">
         <p><%= oneTrip.title %></p>
+        </div>
 
+        <div class="cardLink">
         <a href="/trip/<%= oneTrip._id %>" class="aLink">Show Trip details</a>
-    <% } %>    
+        </div>
+    <% } %>  
+    </div>  
 </body>
 </html>

@@ -77,15 +77,24 @@ router.get('/:tripId/edit', isSignedIn, async (req,res)=>{
     }
 })
 
-router.put('/:tripId', isSignedIn, async (req, res)=>{
+
+router.put('/:tripId', isSignedIn, upload.single('photo'), async (req, res)=>{
     try{
-        const updatedTrip = await Trip.findByIdAndUpdate(req.params.tripId, {
+        let photo
+        if (req.file){
+            photo = req.file.path
+        }
+        const updatedTripData =  {
         title: req.body.title,
         startDate: req.body.startDate,
         endDate: req.body.endDate,
-        photo: req.body.photo,
-        })
+       
+        }
+        if(photo){
+            updatedTripData.photo = photo
+        }
 
+        await Trip.findByIdAndUpdate(req.params.tripId,updatedTripData)
         res.redirect('/trip')
     }catch(err){
         console.log('ERROR:', err)}
