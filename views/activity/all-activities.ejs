@@ -9,11 +9,15 @@
 <body>
     <%- include('../partials/navbar')%>
     <h1>All Activites</h1>
+    <% if(activities.length === 0){ %>
+        <p>There is no activities - Plan your first Activity!</p>
+    <% } else { %>
     <% for (let oneActivity of activities) { %>
         <p><%= oneActivity.name %></p>
         <a href="/trip/<%= currentTrip %>/activity/<%= oneActivity._id%>" class="aLink">Activity Details</a>
     <% } %>
 
+    <% } %>
     <a href="/trip/<%= currentTrip %>/activity/new" class="aLink">Add Activity</a>
 
 </body>

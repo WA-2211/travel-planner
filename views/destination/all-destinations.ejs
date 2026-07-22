@@ -9,10 +9,14 @@
 <body>
     <%- include ('../partials/navbar')%>
     <h1>All Destinations</h1>
+    <% if(destinations.length === 0){ %>
+        <p>There is no destinations - Plan your First Destination!</p>
+    <%} else {%>
     <% for(let oneDestination of destinations) { %>
         <p>Trip: <%= oneDestination.trip.title %> </p>
         <p>Destination: <%= oneDestination.country %>, <%= oneDestination.city %></p>
     <a href="/destination/<%= oneDestination._id %>/edit" class="aLink">Edit Destination</a>
+    <% } %>
     <% } %>
 </body>
 </html>

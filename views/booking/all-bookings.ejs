@@ -10,6 +10,9 @@
     <%- include('../partials/navbar')%>
     <h1>All bookings</h1>
 
+    <% if (bookings.length === 0){%>
+        <p>There is no bookings - Plan your first booking!</p>
+    <% } else {%>
     <% for(let oneBooking of bookings){ %>
         <p>Booking Type: <%= oneBooking.type %> | Booking Cost: <%= oneBooking.cost %> | Booking Date: <%= oneBooking.date.toDateString()%> | Trip:<%= oneBooking.trip.title%> | <%= oneBooking.trip.photo%></p>
     
@@ -19,7 +22,7 @@
         </form>
 
     <% } %>
-
+<%}%>
 
         <a href="/trip/<%= currentTrip %>/booking/new" class="aLink">Add Booking</a>
 
