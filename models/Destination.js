@@ -12,6 +12,10 @@ const destinationSchema = new mongoose.Schema({
     trip:{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Trip'
+    },
+    owner:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
     }
 })
 

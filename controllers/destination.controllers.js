@@ -22,7 +22,8 @@ router.post('/new', isSignedIn, async (req,res)=>{
         const newDestination = await Destination.create({
             country: req.body.country,
             city: req.body.city,
-            trip: req.body.trip
+            trip: req.body.trip,
+            owner: req.session.user._id
         })
         console.log(newDestination)
         res.redirect('/destination')
@@ -33,9 +34,10 @@ router.post('/new', isSignedIn, async (req,res)=>{
 
 router.get('/', isSignedIn, async (req, res)=>{
     try{
+        const currentTrip = req.params.tripId
         const foundAllDestinations = await Destination.find({owner: req.session.user._id}).populate('trip')
         console.log(foundAllDestinations)
-        res.render('destination/all-destinations.ejs', {destinations: foundAllDestinations})
+        res.render('destination/all-destinations.ejs', {destinations: foundAllDestinations, currentTrip: currentTrip})
     }catch(err){
         console.log('ERROR:', err)
     }
