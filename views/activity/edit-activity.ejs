@@ -16,7 +16,7 @@
     <div class="forms">
      <form action="/trip/<%= activity.trip._id %>/activity/<%= activity._id %>?_method=PUT" method="post">
         <label for="name">Activity Name</label>
-        <input type="text" name="name" id="name" value="<%= activity.name %>">
+        <input type="text" name="name" id="name" value="<%= activity.name %>" min="0">
 
         <label for="type">Activity Type:</label>
         <select name="type" id="type">

@@ -42,7 +42,7 @@ router.get('/:tripId/activity', isSignedIn, async (req, res)=>{
     try{
 
         const currentTrip = req.params.tripId
-        const foundAllActivities = await Activity.find({trip:req.params.tripId})
+        const foundAllActivities = await Activity.find({trip:req.params.tripId, })
         res.render('activity/all-activities.ejs', {
             activities: foundAllActivities,
             currentTrip: currentTrip

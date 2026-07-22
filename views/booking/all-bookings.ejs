@@ -26,9 +26,9 @@
     <% for(let oneBooking of bookings){ %>
         <div class="card">
         <p>Booking Type: <%= oneBooking.type %> </p>
-        <p>Booking Cost : <span id="cost">$</span><%= oneBooking.cost %></p>
-        <p>Booking Date: <%= oneBooking.date.toDateString()%></p>
-        <p>Trip:<%= oneBooking.trip.title%></p>
+        <p> Booking Cost : <span id="cost">$</span><%= oneBooking.cost %></p>
+        <p> Booking Date: <%= oneBooking.date.toDateString()%></p>
+        <p> Trip:<%= oneBooking.trip.title%></p>
     </div>
 
         <div class="editAndDelete">

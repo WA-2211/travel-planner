@@ -80,6 +80,11 @@ router.get('/:tripId/edit', isSignedIn, async (req,res)=>{
 router.put('/:tripId', isSignedIn, upload.single('photo'), async (req, res)=>{
     try{
 
+        const foundOneTrip = await Trip.findById(req.params.tripId)
+
+        if(!foundOneTrip.owner === req.session.user ){
+            res.send('Authorization Failed!')
+        }
         let photo
         if(!req.file){
             photo = null
@@ -97,7 +102,7 @@ router.put('/:tripId', isSignedIn, upload.single('photo'), async (req, res)=>{
         }
        
 
-        await Trip.findByIdAndUpdate(req.params.tripId,updatedTripData)
+        await Trip.findByIdAndUpdate(foundOneTrip,updatedTripData)
         res.redirect('/trip')
     }catch(err){
         console.log('ERROR:', err)}

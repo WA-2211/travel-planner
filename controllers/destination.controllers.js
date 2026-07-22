@@ -33,7 +33,7 @@ router.post('/new', isSignedIn, async (req,res)=>{
 
 router.get('/', isSignedIn, async (req, res)=>{
     try{
-        const foundAllDestinations = await Destination.find().populate('trip')
+        const foundAllDestinations = await Destination.find({owner: req.session.user._id}).populate('trip')
         console.log(foundAllDestinations)
         res.render('destination/all-destinations.ejs', {destinations: foundAllDestinations})
     }catch(err){

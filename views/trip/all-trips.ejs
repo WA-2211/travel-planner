@@ -8,11 +8,16 @@
 </head>
 <body>
     <%- include('../partials/navbar') %>
-    <h1>All Trips</h1>
-
-    <div class="backLink">
+     <div class="backLink">
         <a href="/home" class="aBack">> Back</a>
     </div>
+    <h1>All Trips</h1>
+
+      <% if(trips.length === 0){ %>
+        <p>There is no trips - Plan your First Trip!</p>
+        <a href="/trip/new" class="aLink">Add New Trip</a>
+    <%} else {%>
+   
     
     <div class="card-container">
     <div class="cardDisplay">
@@ -26,6 +31,8 @@
         <a href="/trip/<%= oneTrip._id %>" class="aLink">Show Trip details</a>
         </div>
     <% } %>  
+    <%}%>
+
     </div>  
     </div>
 </body>
