@@ -16,7 +16,7 @@
     <div class="forms">
      <form action="/trip/<%= activity.trip._id %>/activity/<%= activity._id %>?_method=PUT" method="post">
         <label for="name">Activity Name</label>
-        <input type="text" name="name" id="name" value="<%= activity.name %>" min="0">
+        <input type="text" name="name" id="name" value="<%= activity.name %>" >
 
         <label for="type">Activity Type:</label>
         <select name="type" id="type">
@@ -35,7 +35,7 @@
         <input type="time" name="timeOfActivity" id="timeOfActivity" value="<%= activity.timeOfActivity.toISOString().substring(11, 16)  %>">
 
         <label for="cost">Cost:</label>
-        <input type="number" name="cost" id="cost" value="<%= activity.cost %>">
+        <input type="number" name="cost" id="cost" value="<%= activity.cost %>" min="0">
 
         <label for="trip">Trip</label>
         <select name="trip" id="trip">

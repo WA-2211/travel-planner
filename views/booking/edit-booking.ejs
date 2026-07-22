@@ -29,7 +29,7 @@
       </select>
 
         <label for="cost">Cost <span id="cost"> ($)</span>:</label>
-        <input type="number" name="cost" id="cost" value="<%= booking.cost %>">
+        <input type="number" name="cost" id="cost" value="<%= booking.cost %>" min="0">
 
         <label for="date">Date:</label>
         <input type="date" name="date" id="date" value="<%= booking.date.toISOString().substring(0, 10) %>">
