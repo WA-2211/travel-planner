@@ -9,7 +9,12 @@
 <body>
     <%- include('../partials/navbar') %>
     <h1>All Trips</h1>
+
+    <div class="backLink">
+        <a href="/home" class="aBack">> Back</a>
+    </div>
     
+    <div class="card-container">
     <div class="cardDisplay">
     <% for (let oneTrip of trips){ %>
     
@@ -22,5 +27,6 @@
         </div>
     <% } %>  
     </div>  
+    </div>
 </body>
 </html>

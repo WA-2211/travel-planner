@@ -14,7 +14,8 @@ nav{
 .aLink{
     text-decoration: none;
     background-color: rgb(92, 111, 73);
-    border: 1px solid rgba(249, 241, 218, 0.35);
+    border: 2px solid rgba(249, 241, 218, 0.35);
+    border-style: dashed;
     border-radius: 15px;
     color: #F9F1DA;
     padding: 5px 13px;
@@ -55,6 +56,23 @@ nav{
     border: #c6ba96 solid 2px;
 }
 
+.aBack{
+    text-decoration: none;
+    font-family: "Yuyu", sans-serif;
+    font-size: 30px;
+    color: rgb(93, 112, 73);
+}
+
+.backLink{
+    display: flex;
+    margin: 20px  18px;
+}
+
+#cost{
+    font-family: "Merriweather", serif;
+    font-size: 15px;
+}
+
 body{
     margin: 0;
     background-color: #F9F1DA;
@@ -70,6 +88,11 @@ body h1{
     font-weight: 300;
 }
 
+body p{
+    font-family: "Yuyu", sans-serif;
+    font-size: 20px;
+}
+
 .pStyle{
     font-family: "Yuyu", cursive;
     font-size: 23px;
@@ -78,7 +101,7 @@ body h1{
 #homeBody{
     margin: 0;
     background-color: #FDF8F2;
-    background-image:  url('./images/Homedesign.png');
+    background-image:  url('../images/Homedesign.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -204,15 +227,17 @@ body h1{
 }
 
 .dateString{
-    font-size: small;
+    font-size: medium;
 }
 
 .editAndDelete{
     display: flex;
     justify-content:center;
-    gap: 15px;
-    margin-top: 20px;
+    gap: 15ptex;
+    margin: 30px;
+
 }
+
 
 .showLinks{
     display: flex;
@@ -226,25 +251,35 @@ body h1{
     font-size: 30px;
 }
 
+.card-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .cardDisplay{
     display: flex;
-    flex-direction: row;
+    align-items: center;
+    flex-direction: column;
     text-align: center;
     gap: 25px;
 }
 .card{
     background-color: #f9ebcc;
-    border: 1px  rgba(93, 112, 73, 0.605);
+    border: 2px  rgba(93, 112, 73, 0.605);
     border-style: dashed;
     border-radius: 30px 5px 30px 5px;
     padding: 15px 20px;
     box-shadow: 3px 2px 4px rgba(0, 0, 0, 0.3);
+    height: auto;
+
 }
 .card p{
     font-family: "Yuyu", sans-serif;
-    font-size: 30px;
+    font-size: 20px;
 }
 .cardLink{
+ display: flex;
+ flex-direction: column;  
 
-   
+
 }

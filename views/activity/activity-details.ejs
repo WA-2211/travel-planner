@@ -9,19 +9,48 @@
 </head>
 <body>
     <%- include('../partials/navbar')%>
-    <h1><%= activity.name %> Details</h1>
-    <p>Activity Type: <%= activity.type %></p>
-    <p>Activity Date: <%= activity.timeOfActivity.toISOString().substring(0, 10) %></p>
-    <p>Activity Time: <%= activity.timeOfActivity.toISOString().substring(11, 16) %></p>
-    <p>Activity Cost: <%= activity.cost %></p>
-    <p>Activity Trip: <%= activity.trip.title %></p>
-    <p>Activity Destination: <%= activity.destination.country %>, <%= activity.destination.city %></p>
+    <div class="backLink">
+        <a href="/trip/<%= currentTrip %>/activity"  class="aBack">> Back</a>
+    </div>
 
-    <a href="/trip/<%= currentTrip %>/activity/<%= activity._id%>/edit" class="aLink">Edit Activity</a>
+    <h1><%= activity.name %> Details</h1>
+    <div class="card-container">
+    <div class="cardDisplay">
+
+    <div class="card">
+    <p>Activity Type: <%= activity.type %></p>
+   </div>
+
+    <div class="card">
+    <p>Activity Date: <%= activity.timeOfActivity.toISOString().substring(0, 10) %></p>
+    </div>
+
+
+    <div class="card">
+    <p>Activity Time: <%= activity.timeOfActivity.toISOString().substring(11, 16) %></p>
+    </div>
+
+    <div class="card">
+    <p>Activity Cost: <%= activity.cost %></p>
+    </div>
+
+    <div class="card">
+    <p>Activity Trip: <%= activity.trip.title %></p>
+    </div>
+
+    <div class="card">
+    <p>Activity Destination: <%= activity.destination.country %>, <%= activity.destination.city %></p>
+    </div>
+
+    <div class="editAndDelete">
+    <a href="/trip/<%= currentTrip %>/activity/<%= activity._id%>/edit" class="btnSubmit">Edit Activity</a>
 
     <form action="/trip/<%= currentTrip %>/activity/<%= activity._id %>/?_method=DELETE" method="post">
         <button type="submit" class="btnSubmit">Delete Activity</button>
     </form>
-    <a href="/trip/<%= currentTrip %>/activity" class="aLink">Back To Activities</a>
+    </div>
+
+    </div>
+    </div>
 </body>
 </html>

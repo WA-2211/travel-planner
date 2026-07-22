@@ -8,6 +8,10 @@
 </head>
 <body>
     <%- include ('../partials/navbar')%>
+
+    <div class="backLink">
+        <a href="/trip/<%= activity.trip._id %>/activity/<%= activity._id%>"  class="aBack">> Back</a>
+    </div>
     <h1>Edit Activity</h1>
     <div class="forms">
      <form action="/trip/<%= activity.trip._id %>/activity/<%= activity._id %>?_method=PUT" method="post">
@@ -58,6 +62,5 @@
         <button type="submit" class="btnSubmit">Update Activity</button>
     </form>
     </div>
-    <a href="/trip/<%= activity.trip._id %>/activity/<%= activity._id %>" class="aLink">Back</a>
 </body>
 </html>

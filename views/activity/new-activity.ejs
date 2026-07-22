@@ -8,6 +8,9 @@
 </head>
 <body>
     <%- include('../partials/navbar')%>
+    <div class="backLink">
+        <a href="/trip/<%= currentTrip %>/activity"  class="aBack">> Back</a>
+    </div>
     <h1>New Activity</h1>
 
     <div class="forms">
@@ -34,7 +37,7 @@
         <label for="timeOfActivity">Activity Time:</label>
         <input type="time" name="timeOfActivity" id="timeOfActivity">
 
-        <label for="cost">Cost:</label>
+        <label for="cost">Cost  <span id="cost"> ($)</span>:</label>
         <input type="number" name="cost" id="cost">
 
 

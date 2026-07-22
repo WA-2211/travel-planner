@@ -8,15 +8,32 @@
 </head>
 <body>
     <%- include ('../partials/navbar')%>
+    <div class="backLink">
+        <a href="/home" class="aBack">> Back</a>
+    </div>
+   
     <h1>All Destinations</h1>
+  
+
     <% if(destinations.length === 0){ %>
         <p>There is no destinations - Plan your First Destination!</p>
+        <a href="/destination/new" class="aLink">Add New Destination</a>
     <%} else {%>
+
+    <div class="card-container">
+    <div class="cardDisplay">
     <% for(let oneDestination of destinations) { %>
+        <div class="card">
         <p>Trip: <%= oneDestination.trip.title %> </p>
         <p>Destination: <%= oneDestination.country %>, <%= oneDestination.city %></p>
+        </div>
+
+    <div class="cardLink">
     <a href="/destination/<%= oneDestination._id %>/edit" class="aLink">Edit Destination</a>
+    </div>
     <% } %>
     <% } %>
+    </div>
+    </div>
 </body>
 </html>

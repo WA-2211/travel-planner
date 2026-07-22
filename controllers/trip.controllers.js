@@ -9,9 +9,10 @@ const upload = multer({dest: './uploads/'})
 
 
 
-router.get('/new', isSignedIn,  (req, res)=>{
+router.get('/new', isSignedIn,  async (req, res)=>{
     try{
-  res.render('trip/create-trip.ejs')
+        const foundTrips = await Trip.find()
+       res.render('trip/create-trip.ejs', {trip:foundTrips})
     } catch(err){
         console.log('ERROR:', err)
     }
@@ -57,8 +58,6 @@ router.get('/', isSignedIn, async (req, res)=>{
 })
 
 
-
-
 router.get('/:tripId',isSignedIn, async (req, res)=>{
     try{
         const foundOneTrip = await Trip.findById(req.params.tripId)
@@ -80,25 +79,29 @@ router.get('/:tripId/edit', isSignedIn, async (req,res)=>{
 
 router.put('/:tripId', isSignedIn, upload.single('photo'), async (req, res)=>{
     try{
+
         let photo
-        if (req.file){
-            photo = req.file.path
+        if(!req.file){
+            photo = null
         }
+
+        else{
+            photo = req.file.path
+        }        
         const updatedTripData =  {
         title: req.body.title,
         startDate: req.body.startDate,
         endDate: req.body.endDate,
+        photo: photo
+        
+        }
        
-        }
-        if(photo){
-            updatedTripData.photo = photo
-        }
 
         await Trip.findByIdAndUpdate(req.params.tripId,updatedTripData)
         res.redirect('/trip')
     }catch(err){
         console.log('ERROR:', err)}
-})
+    })
 
 router.delete('/:tripId', isSignedIn, async (req, res)=>{
     try{

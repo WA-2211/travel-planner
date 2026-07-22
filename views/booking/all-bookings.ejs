@@ -8,23 +8,40 @@
 </head>
 <body>
     <%- include('../partials/navbar')%>
+    <div class="backLink">
+        <a href="/trip/<%= currentTrip %>"  class="aBack">> Back</a>
+    </div>
+
+    <div class="showLinks">
+        <a href="/trip/<%= currentTrip %>/booking/new" class="aLink">Add Booking</a>
+    </div>
+
     <h1>All bookings</h1>
 
     <% if (bookings.length === 0){%>
         <p>There is no bookings - Plan your first booking!</p>
     <% } else {%>
+        <div class="card-container">
+        <div class="cardDisplay">
     <% for(let oneBooking of bookings){ %>
-        <p>Booking Type: <%= oneBooking.type %> | Booking Cost: <%= oneBooking.cost %> | Booking Date: <%= oneBooking.date.toDateString()%> | Trip:<%= oneBooking.trip.title%> | <%= oneBooking.trip.photo%></p>
-    
-        <a href="/trip/<%= currentTrip %>/booking/<%= oneBooking._id %>/edit" class="aLink">Edit Booking</a>
+        <div class="card">
+        <p>Booking Type: <%= oneBooking.type %> </p>
+        <p>Booking Cost : <span id="cost">$</span><%= oneBooking.cost %></p>
+        <p>Booking Date: <%= oneBooking.date.toDateString()%></p>
+        <p>Trip:<%= oneBooking.trip.title%></p>
+    </div>
+
+        <div class="editAndDelete">
+        <a href="/trip/<%= currentTrip %>/booking/<%= oneBooking._id %>/edit" class="btnSubmit">Edit Booking</a>
         <form action="/trip/<%= currentTrip %>/booking/<%= oneBooking._id%>/?_method=DELETE" method="post">
-            <button type="submit" class="aLink">Delete Booking</button>
+            <button type="submit" class="btnSubmit">Delete Booking</button>
         </form>
+        </div>
 
     <% } %>
 <%}%>
-
-        <a href="/trip/<%= currentTrip %>/booking/new" class="aLink">Add Booking</a>
+        </div>
+        </div>
 
 </body>
 </html>

@@ -8,6 +8,9 @@
 </head>
 <body>
     <%- include('../partials/navbar') %>
+        <div class="backLink">
+        <a href="/home" class="aBack">> Back</a>
+    </div>
     <h1>Create New Trip!</h1>
 
     <div class="forms">
@@ -23,6 +26,8 @@
         <input type="date" name="endDate" id="endDate">
 
     
+   <label for="photo">Photo:</label>
+        <input type="file" name="photo" id="photo">
 
         <button type="submit" class="btnSubmit">Create Trip</button>
     </form>

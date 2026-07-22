@@ -34,7 +34,6 @@ router.post('/:tripId/booking/new', isSignedIn, async(req, res)=>{
 router.get('/:tripId/booking', isSignedIn, async (req,res)=>{
 
     try{
-
         const currentTrip = req.params.tripId
         const foundAllBooking = await Booking.find({trip: currentTrip}).populate('trip')
         res.render('booking/all-bookings.ejs', {bookings: foundAllBooking, currentTrip: currentTrip})

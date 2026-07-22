@@ -8,6 +8,9 @@
 </head>
 <body>
     <%- include ('../partials/navbar')%>
+    <div class="backLink">
+        <a href="/trip/<%= currentTrip %>/booking"  class="aBack">> Back</a>
+    </div>
     <h1>New Booking!</h1>
 
     <div class="forms">
@@ -23,8 +26,8 @@
         </select>
 
 
-        <label for="cost">Cost$:</label>
-        <input type="number" name="cost" id="cost">
+        <label for="cost">Cost <span id="cost"> ($)</span>:</label>
+        <input type="number" name="cost" id="cost" min="0">
 
         <label for="date">Date:</label>
         <input type="date" name="date" id="date">
