@@ -1,7 +1,6 @@
 const router = require("express").Router()
 const Trip = require('../models/Trip')
 const isSignedIn = require('../middleware/is-signed-in')
-const { findById } = require("../models/User")
 const multer = require('multer')
 
 

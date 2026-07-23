@@ -26,10 +26,8 @@ Travel Planner is a web app that lets users plan trips such as organizing destin
 - Express
 - MongoDB
 
-
-## Getting Started
-
-## Installation
+## Deployed Link
+[Travel Planner Deployed Link](https://travel-planner-291p.onrender.com)
 
 ## User Stories
 - As a user, I want to be able to sign up my account, so that I can start plan my trip.
