@@ -2,8 +2,6 @@ const router = require("express").Router()
 const Trip = require('../models/Trip')
 const isSignedIn = require('../middleware/is-signed-in')
 const multer = require('multer')
-
-
 const upload = multer({dest: './uploads/'})
 
 
@@ -60,6 +58,10 @@ router.get('/', isSignedIn, async (req, res)=>{
 router.get('/:tripId',isSignedIn, async (req, res)=>{
     try{
         const foundOneTrip = await Trip.findById(req.params.tripId)
+        if(!foundOneTrip.owner.equals(req.session.user._id)){
+             return res.send('Authorization Failed!')
+        }
+        
         res.render('trip/trip-details.ejs', {trip: foundOneTrip})
     }catch(err){
         console.log('ERROR:', err)
@@ -69,6 +71,9 @@ router.get('/:tripId',isSignedIn, async (req, res)=>{
 router.get('/:tripId/edit', isSignedIn, async (req,res)=>{
     try{
         const foundOneTrip = await Trip.findById(req.params.tripId)
+        if(!foundOneTrip.owner.equals(req.session.user._id)){
+             return res.send('Authorization Failed!')
+        }
         res.render('trip/trip-edit.ejs',{trip: foundOneTrip} )
     }catch(err){
             console.log('ERROR:', err)
@@ -81,8 +86,8 @@ router.put('/:tripId', isSignedIn, upload.single('photo'), async (req, res)=>{
 
         const foundOneTrip = await Trip.findById(req.params.tripId)
 
-        if(!foundOneTrip.owner === req.session.user ){
-            res.send('Authorization Failed!')
+        if(!foundOneTrip.owner.equals(req.session.user._id) ){
+            return res.send('Authorization Failed!')
         }
         let photo
         if(!req.file){
@@ -101,7 +106,7 @@ router.put('/:tripId', isSignedIn, upload.single('photo'), async (req, res)=>{
         }
        
 
-        await Trip.findByIdAndUpdate(foundOneTrip,updatedTripData)
+        await Trip.findByIdAndUpdate(req.params.tripId,updatedTripData)
         res.redirect('/trip')
     }catch(err){
         console.log('ERROR:', err)}
@@ -109,6 +114,11 @@ router.put('/:tripId', isSignedIn, upload.single('photo'), async (req, res)=>{
 
 router.delete('/:tripId', isSignedIn, async (req, res)=>{
     try{
+    const foundOneTrip = await Trip.findById(req.params.tripId)
+    if(!foundOneTrip.owner.equals(req.session.user._id)){
+             return res.send('Authorization Failed!')
+        }
+    
     const deleteTrip = await Trip.findByIdAndDelete(req.params.tripId)
     res.redirect('/trip')
     }catch(err){
